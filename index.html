@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yame Candleは、福岡・八女を拠点に自然の色や季節の空気を映したキャンドルを制作するTakaの小さな公式サイトです。">
+  <title>Yame Candle | Taka</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Yame Candle トップへ">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">Yame Candle</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+      <span class="menu-toggle__line"></span>
+      <span class="menu-toggle__line"></span>
+      <span class="menu-toggle__label">Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" data-nav>
+      <a href="#concept">コンセプト</a>
+      <a href="#profile">プロフィール</a>
+      <a href="#gallery">作品</a>
+      <a href="#lesson">レッスン</a>
+      <a href="#faq">FAQ</a>
+      <a class="site-nav__contact" href="#contact">お問い合わせ</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section-pad">
+      <div class="hero__image photo-frame">
+        <img src="images/hero.jpg" alt="やわらかな灯りをともすYame Candleのキャンドル" data-fallback="キャンドルの灯り">
+      </div>
+      <div class="hero__content">
+        <p class="eyebrow">Handmade candles from Yame, Fukuoka</p>
+        <h1>灯すたび、<br>時間がゆっくり流れる。</h1>
+        <p class="lead">福岡・八女を拠点に、自然の色や季節の空気を映したキャンドルを制作しています。日々の暮らしに、静かな余白とあたたかな灯りを届けます。</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#gallery">作品を見る</a>
+          <a class="button button--ghost" href="#lesson">体験レッスンへ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro section-pad" aria-label="サイト概要">
+      <div class="intro__item">
+        <span class="intro__number">01</span>
+        <p>八女の山並み、茶畑、夕暮れの色から着想した一点もの。</p>
+      </div>
+      <div class="intro__item">
+        <span class="intro__number">02</span>
+        <p>少人数で、香りと色をゆっくり選べるワークショップ。</p>
+      </div>
+      <div class="intro__item">
+        <span class="intro__number">03</span>
+        <p>オンライン販売とInstagramで、新作や制作風景をお知らせ。</p>
+      </div>
+    </section>
+
+    <section class="concept section-pad" id="concept">
+      <div class="section-heading">
+        <p class="eyebrow">Concept</p>
+        <h2>暮らしの余白に、<br>小さな灯りを。</h2>
+      </div>
+      <div class="concept__body">
+        <p>Yame Candleは、忙しい日々の中で深呼吸できる時間を大切にしています。火を灯す、眺める、香りを感じる。その短いひとときが、部屋の空気を少しだけやわらかくしてくれます。</p>
+        <p>色づけは淡く、形は自然に。完璧に整えすぎず、手で作るからこその揺らぎを残しています。贈りものにも、自分のための小さな習慣にもなじむキャンドルです。</p>
+      </div>
+    </section>
+
+    <section class="profile section-pad" id="profile">
+      <div class="profile__image photo-frame">
+        <img src="images/profile.jpg" alt="Yame Candleの作家Takaの制作風景" data-fallback="作家プロフィール写真">
+      </div>
+      <div class="profile__content">
+        <p class="eyebrow">Artist</p>
+        <h2>Taka</h2>
+        <p>福岡県八女市在住。季節の草花、古い町並み、夕方の台所に灯るあかりからインスピレーションを受け、ひとつずつキャンドルを制作しています。</p>
+        <p>はじめての方にも気軽に楽しんでいただけるよう、工房では少人数制のレッスンを開催。色や香りを選ぶ時間も含めて、ゆったり過ごせる場づくりを心がけています。</p>
+      </div>
+    </section>
+
+    <section class="gallery section-pad" id="gallery">
+      <div class="section-heading section-heading--center">
+        <p class="eyebrow">Gallery</p>
+        <h2>季節を映すキャンドル</h2>
+        <p>写真は差し替えを前提にした仮配置です。画像が未配置でも、余白と比率が保たれます。</p>
+      </div>
+      <div class="gallery__grid">
+        <figure class="gallery-card photo-frame">
+          <img src="images/gallery-1.jpg" alt="薄いベージュのボタニカルキャンドル" data-fallback="Botanical candle">
+          <figcaption>Botanical</figcaption>
+        </figure>
+        <figure class="gallery-card photo-frame">
+          <img src="images/gallery-2.jpg" alt="夕暮れ色のグラデーションキャンドル" data-fallback="Sunset candle">
+          <figcaption>Sunset</figcaption>
+        </figure>
+        <figure class="gallery-card photo-frame">
+          <img src="images/gallery-3.jpg" alt="季節の香りを閉じ込めたアロマキャンドル" data-fallback="Aroma candle">
+          <figcaption>Aroma</figcaption>
+        </figure>
+        <figure class="gallery-card photo-frame">
+          <img src="images/gallery-4.jpg" alt="贈りもの用に包まれたキャンドル" data-fallback="Gift candle">
+          <figcaption>Gift</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="lesson section-pad" id="lesson">
+      <div class="lesson__content">
+        <p class="eyebrow">Lesson & Workshop</p>
+        <h2>少人数で楽しむ、灯りづくり。</h2>
+        <p>八女の小さなアトリエで、月に数回ワークショップを開いています。はじめての方でも扱いやすい素材を使い、色合わせから仕上げまでTakaがサポートします。</p>
+      </div>
+      <div class="lesson__card">
+        <dl>
+          <div>
+            <dt>内容</dt>
+            <dd>季節のアロマキャンドル制作</dd>
+          </div>
+          <div>
+            <dt>時間</dt>
+            <dd>約90分</dd>
+          </div>
+          <div>
+            <dt>定員</dt>
+            <dd>1〜4名</dd>
+          </div>
+          <div>
+            <dt>料金</dt>
+            <dd>4,400円（税込）〜</dd>
+          </div>
+        </dl>
+        <a class="button button--primary" href="mailto:hello@example.com?subject=Yame%20Candle%20ワークショップ問い合わせ">日程を相談する</a>
+      </div>
+    </section>
+
+    <section class="links section-pad" aria-label="販売ページとInstagram">
+      <article class="link-card">
+        <p class="eyebrow">Online Store</p>
+        <h2>販売ページ</h2>
+        <p>完成品やギフトセットは、外部販売ページで不定期にご案内しています。</p>
+        <a class="button button--external" href="https://example.com/yame-candle-store" target="_blank" rel="noopener noreferrer">販売ページへ</a>
+      </article>
+      <article class="link-card" id="instagram">
+        <p class="eyebrow">Instagram</p>
+        <h2>制作の記録</h2>
+        <p>新作、工房の様子、ワークショップ日程はInstagramでお知らせします。</p>
+        <a class="button button--external" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
+      </article>
+    </section>
+
+    <section class="contact section-pad" id="contact">
+      <div class="contact__inner">
+        <p class="eyebrow">Contact</p>
+        <h2>お問い合わせ</h2>
+        <p>作品のご相談、レッスンのご予約、イベント出店のお問い合わせはメールよりお気軽にご連絡ください。</p>
+        <a class="button button--primary" href="mailto:hello@example.com?subject=Yame%20Candle%20お問い合わせ">メールで問い合わせる</a>
+      </div>
+    </section>
+
+    <section class="faq section-pad" id="faq">
+      <div class="section-heading section-heading--center">
+        <p class="eyebrow">FAQ</p>
+        <h2>よくある質問</h2>
+      </div>
+      <div class="faq__list">
+        <details class="faq__item">
+          <summary>キャンドルが初めてでもレッスンに参加できますか？</summary>
+          <p>はい。道具の使い方から仕上げまでゆっくり進めますので、初めての方も安心してご参加ください。</p>
+        </details>
+        <details class="faq__item">
+          <summary>作品のオーダーはできますか？</summary>
+          <p>時期によりお受けできる数が限られます。用途、色味、ご希望納期を添えてメールでご相談ください。</p>
+        </details>
+        <details class="faq__item">
+          <summary>ギフト包装はお願いできますか？</summary>
+          <p>簡易ラッピングに対応しています。オンライン販売ページまたはお問い合わせ時にお知らせください。</p>
+        </details>
+        <details class="faq__item">
+          <summary>画像が未準備でもサイトを公開できますか？</summary>
+          <p>はい。仮画像がない場合は淡い背景のプレースホルダーが表示され、あとから写真を差し替えられます。</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer__brand">Yame Candle</p>
+    <p>Small official website demo for candle artists.</p>
+    <small>&copy; 2026 Yame Candle. All rights reserved.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
