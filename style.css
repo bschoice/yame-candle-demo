@@ -315,7 +315,8 @@ p {
 .concept,
 .profile,
 .lesson,
-.links {
+.links,
+.contact {
   display: grid;
   gap: 34px;
 }
@@ -332,6 +333,16 @@ p {
 .concept__body p + p,
 .profile__content p + p {
   margin-top: 18px;
+}
+
+.concept__image,
+.lesson__image,
+.contact__visual {
+  min-height: clamp(240px, 58vw, 420px);
+}
+
+.lesson__image {
+  margin-top: 28px;
 }
 
 .profile__image {
@@ -388,6 +399,17 @@ p {
   box-shadow: var(--shadow-soft);
 }
 
+.link-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.link-card__image {
+  min-height: clamp(210px, 54vw, 320px);
+  margin: calc(clamp(26px, 7vw, 46px) * -0.45) calc(clamp(26px, 7vw, 46px) * -0.45) 26px;
+  border-radius: calc(var(--radius-lg) - 8px);
+}
+
 .lesson__card dl {
   display: grid;
   gap: 16px;
@@ -423,6 +445,10 @@ p {
 
 .contact__inner {
   text-align: center;
+}
+
+.contact__visual img {
+  object-position: center 45%;
 }
 
 .faq__list {
@@ -519,10 +545,14 @@ p {
   }
 
   .hero,
-  .concept,
   .profile,
-  .lesson {
+  .lesson,
+  .contact {
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  }
+
+  .concept {
+    grid-template-columns: minmax(0, 0.76fr) minmax(280px, 0.66fr) minmax(0, 0.82fr);
   }
 
   .hero__image {
@@ -538,8 +568,21 @@ p {
   }
 
   .concept__body,
-  .lesson__card {
+  .lesson__card,
+  .contact__inner {
     align-self: end;
+  }
+
+  .concept__image {
+    min-height: 480px;
+  }
+
+  .lesson__image {
+    min-height: 300px;
+  }
+
+  .contact__visual {
+    min-height: 520px;
   }
 
   .profile {

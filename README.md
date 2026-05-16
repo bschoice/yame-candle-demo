@@ -20,16 +20,21 @@
 ├── script.js
 ├── images/
 │   ├── .gitkeep
-│   ├── hero.jpg
 │   ├── artist01.png
-│   ├── gallery-1.jpg
-│   ├── gallery-2.jpg
-│   ├── gallery-3.jpg
-│   └── gallery-4.jpg
+│   ├── yame01.png
+│   ├── yame02.png
+│   ├── yame03.png
+│   ├── yame04.png
+│   ├── yame05.png
+│   ├── yame06.png
+│   ├── yame07.png
+│   ├── yame08.png
+│   ├── yame9.png
+│   └── yame10.png
 └── README.md
 ```
 
-`images` 内の JPG ファイルは差し替え前提です。未配置の場合は、淡いプレースホルダー表示になります。
+`images` 内の yame 系 PNG ファイルを各セクションの写真として使用します。未配置の場合は、淡いプレースホルダー表示になります。
 
 ## ローカル確認
 
