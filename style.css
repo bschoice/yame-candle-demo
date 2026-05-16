@@ -335,7 +335,11 @@ p {
 }
 
 .profile__image {
-  min-height: 420px;
+  min-height: clamp(280px, 72vw, 420px);
+}
+
+.profile__image img {
+  object-position: center 38%;
 }
 
 .section-heading {

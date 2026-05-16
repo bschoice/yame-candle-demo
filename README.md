@@ -21,7 +21,7 @@
 ├── images/
 │   ├── .gitkeep
 │   ├── hero.jpg
-│   ├── profile.jpg
+│   ├── artist01.png
 │   ├── gallery-1.jpg
 │   ├── gallery-2.jpg
 │   ├── gallery-3.jpg
