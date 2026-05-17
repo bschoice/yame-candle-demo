@@ -28,7 +28,7 @@
       <a href="#about">アトリエについて</a>
       <a href="#lesson">レッスン</a>
       <a class="site-nav__reserve" href="#reserve">ご予約</a>
-      <a href="#gallery">作品紹介</a>
+      <a href="#shop">オンラインショップ</a>
       <a href="#access">アクセス</a>
       <a class="site-nav__contact" href="#contact">お問合せ</a>
     </nav>
@@ -45,7 +45,6 @@
         <p class="lead">初めての方でも気軽に楽しめる1dayレッスンをご用意しています。香りと色をゆっくり選びながら、自分だけのキャンドルを作る少人数制アトリエです。</p>
         <div class="hero__actions">
           <a class="button button--primary" href="#lesson">レッスンを見る</a>
-          <a class="button button--ghost button--reserve" href="#reserve">予約する</a>
         </div>
       </div>
     </section>
@@ -168,33 +167,25 @@
       </div>
       <div class="reserve__actions">
         <a class="button button--primary" href="mailto:hello@example.com?subject=Yame%20Candle%20レッスン予約">メールで予約する</a>
-        <a class="button button--ghost button--external" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram DM</a>
       </div>
     </section>
 
-    <section class="gallery section-pad" id="gallery">
-      <div class="section-heading section-heading--center">
-        <p class="eyebrow">Works</p>
-        <h2>作品紹介</h2>
-        <p>レッスンで作れる雰囲気の参考にもなる、Yame Candleの作品たちです。</p>
+    <section class="shop section-pad" id="shop" style="background: rgba(255, 253, 248, 0.46);">
+      <div class="section-heading section-heading--center" style="margin-bottom: clamp(34px, 5vw, 56px);">
+        <p class="eyebrow">Online shop</p>
+        <h2>オンラインショップ</h2>
+        <p>アトリエの空気感をそのまま届けるような、やさしい灯りのキャンドルをオンラインでもご紹介しています。</p>
       </div>
-      <div class="gallery__grid">
-        <figure class="gallery-card photo-frame">
-          <img src="images/yame03.png" alt="淡い花材を閉じ込めたボタニカルキャンドル" data-fallback="Botanical candle">
-          <figcaption>Botanical</figcaption>
-        </figure>
-        <figure class="gallery-card photo-frame">
-          <img src="images/yame04.png" alt="夕暮れの色を重ねたグラデーションキャンドル" data-fallback="Sunset candle">
-          <figcaption>Sunset</figcaption>
-        </figure>
-        <figure class="gallery-card photo-frame">
-          <img src="images/yame05.png" alt="季節の香りを楽しむアロマキャンドル" data-fallback="Aroma candle">
-          <figcaption>Aroma</figcaption>
-        </figure>
-        <figure class="gallery-card photo-frame">
-          <img src="images/yame06.png" alt="贈りものに添えたい上品なキャンドル" data-fallback="Gift candle">
-          <figcaption>Gift</figcaption>
-        </figure>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); align-items: center; gap: clamp(28px, 5vw, 64px); max-width: 1180px; margin: 0 auto;">
+        <div class="photo-frame" style="min-height: clamp(280px, 36vw, 460px); border-radius: 32px;">
+          <img src="images/yame06.png" alt="オンラインショップで販売している贈りもの向けキャンドル" data-fallback="オンラインショップのキャンドル" style="object-position: center center;">
+        </div>
+        <div style="display: grid; gap: 22px; padding: clamp(26px, 5vw, 52px); border: 1px solid rgba(114, 84, 61, 0.11); border-radius: 32px; background: rgba(255, 253, 248, 0.88); box-shadow: var(--shadow-soft); color: var(--color-soft-brown);">
+          <p class="eyebrow" style="margin-bottom: 0;">Shop info</p>
+          <h3 style="color: var(--color-brown); font-size: clamp(1.45rem, 3.4vw, 2.2rem); line-height: 1.45;">贈りものにも選びやすい、やさしい灯り。</h3>
+          <p>ご自宅用にはもちろん、贈りものにも選びやすい作品を揃えています。季節限定のキャンドルや、人気のアイテムも掲載しています。</p>
+          <a class="button button--primary" href="#" style="justify-self: start; min-width: min(100%, 260px); margin-top: 8px;">オンラインショップを見る</a>
+        </div>
       </div>
     </section>
 
