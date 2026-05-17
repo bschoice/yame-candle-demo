@@ -1,4 +1,5 @@
 document.querySelector('.hero__actions .button--reserve')?.remove();
+document.querySelector('.reserve__actions .button--ghost')?.remove();
 
 const menuToggle = document.querySelector('[data-menu-toggle]');
 const navigation = document.querySelector('[data-nav]');
