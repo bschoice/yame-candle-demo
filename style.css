@@ -797,4 +797,15 @@ p {
   .lesson-card .button {
     min-height: 50px;
   }
+
+  #lesson .section-heading {
+    max-width: 100%;
+  }
+
+  #lesson .section-heading h2 {
+    white-space: nowrap;
+    font-size: clamp(1.45rem, 7.3vw, 1.9rem);
+    line-height: 1.35;
+    letter-spacing: 0.03em;
+  }
 }
