@@ -726,11 +726,23 @@ p {
 }
 
 .lesson-card__image {
-  min-height: clamp(105px, 12vw, 145px) !important;
-  max-height: 150px;
-  margin-bottom: 14px !important;
+  height: clamp(210px, 18vw, 270px) !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  margin-bottom: 18px !important;
   border-radius: 18px;
   box-shadow: none;
+  padding: 10px;
+  background: #fbf6eb;
+}
+
+.lesson-card__image img {
+  width: 100%;
+  height: 100%;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+  background: transparent !important;
 }
 
 .lesson-card__label {
@@ -768,8 +780,10 @@ p {
   }
 
   .lesson-card__image {
-    min-height: 140px !important;
-    max-height: 170px;
+    height: 190px !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 8px;
   }
 
   .lesson__cards {
