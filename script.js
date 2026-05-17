@@ -19,18 +19,19 @@ if (contactVisual) {
         inset: 0;
         display: grid;
         place-items: center;
-        padding: clamp(26px, 4vw, 48px);
+        padding: clamp(24px, 4vw, 46px);
         text-align: center;
         background:
           radial-gradient(circle at 18% 18%, rgba(201, 131, 43, 0.16), transparent 34%),
           linear-gradient(135deg, rgba(255, 253, 248, 0.95), rgba(241, 228, 207, 0.82));
         color: var(--color-brown);
+        overflow: hidden;
       "
     >
-      <span style="display: grid; gap: 18px; justify-items: center; max-width: 560px;">
+      <span style="display: grid; gap: clamp(18px, 3.5vw, 24px); justify-items: center; align-content: center; width: 100%; max-width: 560px;">
         <span class="eyebrow" style="margin: 0;">Instagram</span>
-        <span style="display: block; font-family: var(--font-serif); font-size: clamp(1.85rem, 3.8vw, 2.8rem); line-height: 1.45; letter-spacing: 0.06em;">制作風景や最新情報は<br>Instagramへ</span>
-        <span class="button button--primary" style="margin-top: 6px; min-width: min(100%, 260px);">Instagramを見る</span>
+        <span style="display: block; font-family: var(--font-serif); font-size: clamp(1.7rem, 6.2vw, 2.8rem); line-height: 1.42; letter-spacing: 0.06em;">お得情報は<br>Instagramへ</span>
+        <span class="button button--primary" style="margin-top: 0; min-width: min(100%, 260px); max-width: 100%;">Instagramを見る</span>
       </span>
     </a>
   `;
@@ -45,7 +46,7 @@ const syncContactHeight = () => {
     contactVisual.style.minHeight = `${contactHeight}px`;
   } else {
     contactVisual.style.height = '';
-    contactVisual.style.minHeight = 'clamp(260px, 58vw, 360px)';
+    contactVisual.style.minHeight = 'clamp(380px, 90vw, 480px)';
   }
 };
 
