@@ -808,4 +808,15 @@ p {
     line-height: 1.35;
     letter-spacing: 0.03em;
   }
+
+  .access__list > div {
+    grid-template-columns: 5.9em minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .access__list dt {
+    white-space: nowrap;
+    font-size: 0.95em;
+    letter-spacing: 0.01em;
+  }
 }
