@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Yame Candleは、福岡・八女を拠点に自然の色や季節の空気を映したキャンドルを制作するTakaの小さな公式サイトです。">
+  <meta name="description" content="Yame Candleは、福岡・八女で1dayレッスンやボタニカルキャンドル作りを楽しめる少人数制の小さなキャンドルアトリエです。">
   <title>Yame Candle | Taka</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,12 +24,13 @@
     </button>
 
     <nav class="site-nav" id="site-nav" data-nav>
-      <a href="#concept">コンセプト</a>
-      <a href="#profile">プロフィール</a>
-      <a href="#gallery">作品</a>
+      <a href="#top">TOP</a>
+      <a href="#about">アトリエについて</a>
       <a href="#lesson">レッスン</a>
-      <a href="#faq">FAQ</a>
-      <a class="site-nav__contact" href="#contact">お問い合わせ</a>
+      <a class="site-nav__reserve" href="#reserve">ご予約</a>
+      <a href="#gallery">作品紹介</a>
+      <a href="#access">アクセス</a>
+      <a class="site-nav__contact" href="#contact">お問合せ</a>
     </nav>
   </header>
 
@@ -39,12 +40,12 @@
         <img src="images/yame01.png" alt="やわらかな灯りに包まれたYame Candleのメインビジュアル" data-fallback="キャンドルの灯り">
       </div>
       <div class="hero__content">
-        <p class="eyebrow">Handmade candles from Yame, Fukuoka</p>
-        <h1>灯すたび、<br>時間がゆっくり流れる。</h1>
-        <p class="lead">福岡・八女を拠点に、自然の色や季節の空気を映したキャンドルを制作しています。日々の暮らしに、静かな余白とあたたかな灯りを届けます。</p>
+        <p class="eyebrow">Candle lesson atelier in Yame</p>
+        <h1>福岡・八女で楽しむ、<br>小さなキャンドルレッスン。</h1>
+        <p class="lead">初めての方でも気軽に楽しめる1dayレッスンをご用意しています。香りと色をゆっくり選びながら、自分だけのキャンドルを作る少人数制アトリエです。</p>
         <div class="hero__actions">
-          <a class="button button--primary" href="#gallery">作品を見る</a>
-          <a class="button button--ghost" href="#lesson">体験レッスンへ</a>
+          <a class="button button--primary" href="#lesson">レッスンを見る</a>
+          <a class="button button--ghost button--reserve" href="#reserve">予約する</a>
         </div>
       </div>
     </section>
@@ -52,49 +53,119 @@
     <section class="intro section-pad" aria-label="サイト概要">
       <div class="intro__item">
         <span class="intro__number">01</span>
-        <p>八女の山並み、茶畑、夕暮れの色から着想した一点もの。</p>
+        <p>1dayから参加できる、初心者向けキャンドルレッスン。</p>
       </div>
       <div class="intro__item">
         <span class="intro__number">02</span>
-        <p>少人数で、香りと色をゆっくり選べるワークショップ。</p>
+        <p>香り・色・花材を選んで、自分らしく仕上げる制作時間。</p>
       </div>
       <div class="intro__item">
         <span class="intro__number">03</span>
-        <p>オンライン販売とInstagramで、新作や制作風景をお知らせ。</p>
+        <p>Instagram DMまたはメールで、希望日を気軽に相談できます。</p>
       </div>
     </section>
 
-    <section class="concept section-pad" id="concept">
+    <section class="concept section-pad" id="about">
       <div class="section-heading">
-        <p class="eyebrow">Concept</p>
-        <h2>暮らしの余白に、<br>小さな灯りを。</h2>
+        <p class="eyebrow">About atelier</p>
+        <h2>アトリエについて</h2>
       </div>
       <div class="concept__image photo-frame">
         <img src="images/yame02.png" alt="自然な色合いのキャンドルが並ぶコンセプト写真" data-fallback="コンセプト写真">
       </div>
       <div class="concept__body">
-        <p>Yame Candleは、忙しい日々の中で深呼吸できる時間を大切にしています。火を灯す、眺める、香りを感じる。その短いひとときが、部屋の空気を少しだけやわらかくしてくれます。</p>
-        <p>色づけは淡く、形は自然に。完璧に整えすぎず、手で作るからこその揺らぎを残しています。贈りものにも、自分のための小さな習慣にもなじむキャンドルです。</p>
+        <p>Yame Candleは、福岡・八女の静かな時間に寄り添う小さなキャンドルアトリエです。ドライフラワーとやさしい香りに包まれた空間で、初めての方にもわかりやすく制作をサポートします。</p>
+        <p>自然の色、季節の花材、火を灯す前のワクワク。完成品を眺めるだけでなく、手を動かして作る時間そのものを楽しめる教室を目指しています。</p>
       </div>
     </section>
 
-    <section class="profile section-pad" id="profile">
-      <div class="profile__image photo-frame">
-        <img src="images/artist01.png" alt="Yame Candleの作家Takaのプロフィール写真" data-fallback="作家プロフィール写真">
+    <section class="lesson section-pad" id="lesson">
+      <div class="section-heading section-heading--center">
+        <p class="eyebrow">Lesson</p>
+        <h2>選べるキャンドルレッスン</h2>
+        <p>八女の小さなアトリエで、月に数回レッスンを開いています。道具の使い方から仕上げまでTakaがそばでサポートします。</p>
       </div>
-      <div class="profile__content">
-        <p class="eyebrow">Artist</p>
-        <h2>Taka</h2>
-        <p>福岡県八女市在住。季節の草花、古い町並み、夕方の台所に灯るあかりからインスピレーションを受け、ひとつずつキャンドルを制作しています。</p>
-        <p>はじめての方にも気軽に楽しんでいただけるよう、工房では少人数制のレッスンを開催。色や香りを選ぶ時間も含めて、ゆったり過ごせる場づくりを心がけています。</p>
+      <div class="lesson__intro">
+        <div class="lesson__image photo-frame">
+          <img src="images/yame07.png" alt="ワークショップでキャンドルづくりを楽しむ様子" data-fallback="ワークショップ写真">
+        </div>
+        <div class="lesson__note">
+          <p class="eyebrow">Small class</p>
+          <h3>少人数だから、香りも色もゆっくり選べます。</h3>
+          <p>おひとり参加、ご友人同士、親子での参加も歓迎です。制作後は灯し方やお手入れ方法もお伝えします。</p>
+        </div>
+      </div>
+      <div class="lesson__cards">
+        <article class="lesson-card">
+          <p class="lesson-card__label">For beginners</p>
+          <h3>1day Candle Lesson</h3>
+          <p>基本のワックスを使い、色と香りを選んで小さなアロマキャンドルを制作します。</p>
+          <dl>
+            <div><dt>時間</dt><dd>約90分</dd></div>
+            <div><dt>料金</dt><dd>4,400円（税込）</dd></div>
+            <div><dt>定員</dt><dd>1〜4名</dd></div>
+          </dl>
+          <a class="button button--primary" href="#reserve">このレッスンを予約</a>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card__label">Flower craft</p>
+          <h3>Botanical Candle Lesson</h3>
+          <p>ドライフラワーを閉じ込めた、飾っても灯しても楽しめるボタニカルキャンドルを作ります。</p>
+          <dl>
+            <div><dt>時間</dt><dd>約120分</dd></div>
+            <div><dt>料金</dt><dd>5,500円（税込）</dd></div>
+            <div><dt>定員</dt><dd>1〜3名</dd></div>
+          </dl>
+          <a class="button button--primary" href="#reserve">このレッスンを予約</a>
+        </article>
+        <article class="lesson-card">
+          <p class="lesson-card__label">Seasonal limited</p>
+          <h3>Seasonal Workshop</h3>
+          <p>季節の花材やイベントに合わせた限定デザインを、月替わりで楽しめるワークショップです。</p>
+          <dl>
+            <div><dt>時間</dt><dd>約100分</dd></div>
+            <div><dt>料金</dt><dd>4,950円（税込）〜</dd></div>
+            <div><dt>定員</dt><dd>1〜4名</dd></div>
+          </dl>
+          <a class="button button--primary" href="#reserve">このレッスンを予約</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="reserve section-pad" id="reserve">
+      <div class="section-heading section-heading--center">
+        <p class="eyebrow">Reservation</p>
+        <h2>ご予約の流れ</h2>
+        <p>気になるレッスンが決まったら、Instagram DMまたはメールで希望日をご相談ください。</p>
+      </div>
+      <div class="reserve__steps">
+        <article class="reserve-step">
+          <span>01</span>
+          <h3>希望レッスンを選ぶ</h3>
+          <p>1day、ボタニカル、季節のワークショップから作りたい内容をお選びください。</p>
+        </article>
+        <article class="reserve-step">
+          <span>02</span>
+          <h3>Instagram DMまたはメールで日程相談</h3>
+          <p>参加人数と希望日時をお知らせください。空き状況を確認してご案内します。</p>
+        </article>
+        <article class="reserve-step">
+          <span>03</span>
+          <h3>当日アトリエで制作</h3>
+          <p>香りと色を選びながら制作します。完成したキャンドルは当日お持ち帰りいただけます。</p>
+        </article>
+      </div>
+      <div class="reserve__actions">
+        <a class="button button--primary" href="mailto:hello@example.com?subject=Yame%20Candle%20レッスン予約">メールで予約する</a>
+        <a class="button button--ghost button--external" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram DM</a>
       </div>
     </section>
 
     <section class="gallery section-pad" id="gallery">
       <div class="section-heading section-heading--center">
-        <p class="eyebrow">Gallery</p>
-        <h2>季節を映すキャンドル</h2>
-        <p>八女の季節や日々の余白を映す、Yame Candleの作品たちです。</p>
+        <p class="eyebrow">Works</p>
+        <h2>作品紹介</h2>
+        <p>レッスンで作れる雰囲気の参考にもなる、Yame Candleの作品たちです。</p>
       </div>
       <div class="gallery__grid">
         <figure class="gallery-card photo-frame">
@@ -116,57 +187,20 @@
       </div>
     </section>
 
-    <section class="lesson section-pad" id="lesson">
-      <div class="lesson__content">
-        <p class="eyebrow">Lesson & Workshop</p>
-        <h2>少人数で楽しむ、灯りづくり。</h2>
-        <p>八女の小さなアトリエで、月に数回ワークショップを開いています。はじめての方でも扱いやすい素材を使い、色合わせから仕上げまでTakaがサポートします。</p>
-        <div class="lesson__image photo-frame">
-          <img src="images/yame07.png" alt="ワークショップでキャンドルづくりを楽しむ様子" data-fallback="ワークショップ写真">
-        </div>
+    <section class="access section-pad" id="access">
+      <div class="access__visual photo-frame">
+        <img src="images/yame08.png" alt="八女の小さなアトリエをイメージしたキャンドル写真" data-fallback="アトリエ写真">
       </div>
-      <div class="lesson__card">
-        <dl>
-          <div>
-            <dt>内容</dt>
-            <dd>季節のアロマキャンドル制作</dd>
-          </div>
-          <div>
-            <dt>時間</dt>
-            <dd>約90分</dd>
-          </div>
-          <div>
-            <dt>定員</dt>
-            <dd>1〜4名</dd>
-          </div>
-          <div>
-            <dt>料金</dt>
-            <dd>4,400円（税込）〜</dd>
-          </div>
+      <div class="access__content">
+        <p class="eyebrow">Access</p>
+        <h2>アクセス</h2>
+        <p>詳しい場所はご予約確定後にご案内します。八女散策とあわせて、ゆっくりお越しください。</p>
+        <dl class="access__list">
+          <div><dt>住所</dt><dd>福岡県八女市内の小さなアトリエ</dd></div>
+          <div><dt>駐車場</dt><dd>1〜2台分あり（ご予約時にご案内します）</dd></div>
+          <div><dt>支払い方法</dt><dd>当日現金またはPayPay</dd></div>
         </dl>
-        <a class="button button--primary" href="mailto:hello@example.com?subject=Yame%20Candle%20ワークショップ問い合わせ">日程を相談する</a>
       </div>
-    </section>
-
-    <section class="links section-pad" aria-label="販売ページとInstagram">
-      <article class="link-card">
-        <div class="link-card__image photo-frame">
-          <img src="images/yame08.png" alt="販売ページで紹介するキャンドルとギフトのイメージ" data-fallback="販売ページ写真">
-        </div>
-        <p class="eyebrow">Online Store</p>
-        <h2>販売ページ</h2>
-        <p>完成品やギフトセットは、外部販売ページで不定期にご案内しています。</p>
-        <a class="button button--external" href="https://example.com/yame-candle-store" target="_blank" rel="noopener noreferrer">販売ページへ</a>
-      </article>
-      <article class="link-card" id="instagram">
-        <div class="link-card__image photo-frame">
-          <img src="images/yame9.png" alt="Instagramで紹介する制作風景とキャンドルの写真" data-fallback="Instagram写真">
-        </div>
-        <p class="eyebrow">Instagram</p>
-        <h2>制作の記録</h2>
-        <p>新作、工房の様子、ワークショップ日程はInstagramでお知らせします。</p>
-        <a class="button button--external" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagramを見る</a>
-      </article>
     </section>
 
     <section class="contact section-pad" id="contact">
@@ -175,9 +209,9 @@
       </div>
       <div class="contact__inner">
         <p class="eyebrow">Contact</p>
-        <h2>お問い合わせ</h2>
-        <p>作品のご相談、レッスンのご予約、イベント出店のお問い合わせはメールよりお気軽にご連絡ください。</p>
-        <a class="button button--primary" href="mailto:hello@example.com?subject=Yame%20Candle%20お問い合わせ">メールで問い合わせる</a>
+        <h2>お問合せ</h2>
+        <p>レッスンのご予約、作品のご相談、イベント出店のお問合せはメールよりお気軽にご連絡ください。</p>
+        <a class="button button--primary" href="mailto:hello@example.com?subject=Yame%20Candle%20お問い合わせ">メールで問合せる</a>
       </div>
     </section>
 
@@ -192,16 +226,16 @@
           <p>はい。道具の使い方から仕上げまでゆっくり進めますので、初めての方も安心してご参加ください。</p>
         </details>
         <details class="faq__item">
-          <summary>作品のオーダーはできますか？</summary>
-          <p>時期によりお受けできる数が限られます。用途、色味、ご希望納期を添えてメールでご相談ください。</p>
+          <summary>予約はいつまでに連絡すればよいですか？</summary>
+          <p>準備の都合上、できるだけ3日前までにInstagram DMまたはメールでご相談ください。</p>
         </details>
         <details class="faq__item">
-          <summary>ギフト包装はお願いできますか？</summary>
-          <p>簡易ラッピングに対応しています。オンライン販売ページまたはお問い合わせ時にお知らせください。</p>
+          <summary>持ち物はありますか？</summary>
+          <p>必要な道具はこちらでご用意します。汚れが気になる方はエプロンをご持参ください。</p>
         </details>
         <details class="faq__item">
-          <summary>写真の雰囲気に合わせて相談できますか？</summary>
-          <p>はい。色味や贈る方のイメージ、飾る場所に合わせた雰囲気づくりもご相談いただけます。</p>
+          <summary>駐車場や支払い方法は？</summary>
+          <p>駐車場は1〜2台分あります。お支払いは当日現金またはPayPayでお願いしています。</p>
         </details>
       </div>
     </section>
