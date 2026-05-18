@@ -1,6 +1,28 @@
 document.querySelector('.hero__actions .button--reserve')?.remove();
 document.querySelector('.reserve__actions .button--ghost')?.remove();
 
+const reserveNavLink = document.querySelector('.site-nav__reserve');
+
+const normalizeReserveNavLink = () => {
+  if (!reserveNavLink) return;
+
+  reserveNavLink.style.setProperty('color', 'inherit', 'important');
+  reserveNavLink.style.setProperty('background', 'transparent', 'important');
+  reserveNavLink.style.setProperty('border', '0', 'important');
+  reserveNavLink.style.setProperty('border-radius', '0', 'important');
+  reserveNavLink.style.setProperty('box-shadow', 'none', 'important');
+
+  if (window.matchMedia('(min-width: 960px)').matches) {
+    reserveNavLink.style.setProperty('padding', '4px 0', 'important');
+  } else {
+    reserveNavLink.style.setProperty('padding', '12px 0', 'important');
+  }
+};
+
+requestAnimationFrame(normalizeReserveNavLink);
+window.addEventListener('load', normalizeReserveNavLink);
+window.addEventListener('resize', normalizeReserveNavLink);
+
 const lessonDescription = document.querySelector('#lesson .section-heading p:not(.eyebrow)');
 
 const syncLessonDescriptionPosition = () => {
