@@ -1,149 +1,117 @@
-document.querySelector('.hero__actions .button--reserve')?.remove();
-document.querySelector('.reserve__actions .button--ghost')?.remove();
+(() => {
+  const mobileQuery = window.matchMedia('(max-width: 959px)');
+  const desktopQuery = window.matchMedia('(min-width: 960px)');
 
-const accessList = document.querySelector('.access__list');
+  document.querySelector('.hero__actions .button--reserve')?.remove();
+  document.querySelector('.reserve__actions .button--ghost')?.remove();
 
-const updateAccessInfo = () => {
-  if (!accessList) return;
-
-  const rows = [...accessList.querySelectorAll(':scope > div')];
-
-  rows.forEach((row) => {
-    row.style.gridTemplateColumns = window.matchMedia('(max-width: 699px)').matches
-      ? '6.6em minmax(0, 1fr)'
-      : '7.2em minmax(0, 1fr)';
-    row.style.alignItems = 'start';
-
-    const label = row.querySelector('dt');
-    if (label) {
-      label.style.whiteSpace = 'nowrap';
-      label.style.letterSpacing = '0.02em';
-    }
+  document.querySelectorAll('a[href^="mailto:hello@example.com"]').forEach((link) => {
+    const subject = link.href.includes('お問い合わせ') ? 'Yame%20Candle%20お問い合わせ' : 'Yame%20Candle%20レッスン予約';
+    link.href = `mailto:yamesample@co.jp?subject=${subject}`;
   });
 
-  const hasEmailRow = rows.some((row) => row.querySelector('dt')?.textContent?.trim() === 'メール');
-  if (!hasEmailRow) {
-    const emailRow = document.createElement('div');
-    emailRow.innerHTML = '<dt>メール</dt><dd><a href="mailto:yamesample@co.jp">yamesample@co.jp</a></dd>';
-    emailRow.style.gridTemplateColumns = window.matchMedia('(max-width: 699px)').matches
-      ? '6.6em minmax(0, 1fr)'
-      : '7.2em minmax(0, 1fr)';
-    emailRow.style.alignItems = 'start';
+  const accessList = document.querySelector('.access__list');
+  const updateAccessInfo = () => {
+    if (!accessList) return;
 
-    const label = emailRow.querySelector('dt');
-    if (label) {
-      label.style.whiteSpace = 'nowrap';
-      label.style.letterSpacing = '0.02em';
+    const rows = [...accessList.querySelectorAll(':scope > div')];
+    rows.forEach((row) => {
+      row.style.gridTemplateColumns = window.matchMedia('(max-width: 699px)').matches
+        ? '6.6em minmax(0, 1fr)'
+        : '7.2em minmax(0, 1fr)';
+      row.style.alignItems = 'start';
+
+      const label = row.querySelector('dt');
+      if (label) {
+        label.style.whiteSpace = 'nowrap';
+        label.style.letterSpacing = '0.02em';
+      }
+    });
+
+    const hasEmailRow = rows.some((row) => row.querySelector('dt')?.textContent?.trim() === 'メール');
+    if (!hasEmailRow) {
+      const emailRow = document.createElement('div');
+      emailRow.innerHTML = '<dt>メール</dt><dd><a href="mailto:yamesample@co.jp">yamesample@co.jp</a></dd>';
+      emailRow.style.gridTemplateColumns = window.matchMedia('(max-width: 699px)').matches
+        ? '6.6em minmax(0, 1fr)'
+        : '7.2em minmax(0, 1fr)';
+      emailRow.style.alignItems = 'start';
+
+      const label = emailRow.querySelector('dt');
+      if (label) {
+        label.style.whiteSpace = 'nowrap';
+        label.style.letterSpacing = '0.02em';
+      }
+
+      const link = emailRow.querySelector('a');
+      if (link) {
+        link.style.textDecoration = 'none';
+        link.style.color = 'inherit';
+        link.style.wordBreak = 'break-word';
+      }
+
+      accessList.appendChild(emailRow);
     }
+  };
 
-    const link = emailRow.querySelector('a');
-    if (link) {
-      link.style.textDecoration = 'none';
-      link.style.color = 'inherit';
-      link.style.wordBreak = 'break-word';
+  const lessonDescription = document.querySelector('#lesson .section-heading p:not(.eyebrow)');
+  const syncLessonDescriptionPosition = () => {
+    if (!lessonDescription) return;
+
+    lessonDescription.style.textAlign = 'left';
+    lessonDescription.style.marginLeft = 'auto';
+    lessonDescription.style.marginRight = 'auto';
+
+    if (desktopQuery.matches) {
+      lessonDescription.style.display = 'inline-block';
+      lessonDescription.style.maxWidth = 'max-content';
+    } else {
+      lessonDescription.style.display = 'block';
+      lessonDescription.style.maxWidth = '760px';
     }
+  };
 
-    accessList.appendChild(emailRow);
-  }
-};
+  const profileSection = document.querySelector('#profile');
+  const profileGrid = profileSection?.querySelector(':scope > div');
+  const profileCard = profileGrid?.children?.[0];
+  const profilePhoto = profileGrid?.querySelector('.photo-frame');
+  const profileTags = profileCard?.querySelector('div[style*="display: flex"][style*="flex-wrap: wrap"]');
+  const profileTitle = profileSection?.querySelector('h2');
+  const profileTitleOriginalStyles = profileTitle
+    ? {
+        fontSize: profileTitle.style.fontSize,
+        lineHeight: profileTitle.style.lineHeight,
+        letterSpacing: profileTitle.style.letterSpacing,
+        whiteSpace: profileTitle.style.whiteSpace,
+      }
+    : null;
 
-requestAnimationFrame(updateAccessInfo);
-window.addEventListener('load', updateAccessInfo);
-window.addEventListener('resize', updateAccessInfo);
+  profileTags?.remove();
 
-document.querySelectorAll('a[href^="mailto:hello@example.com"]').forEach((link) => {
-  const subject = link.href.includes('お問い合わせ') ? 'Yame%20Candle%20お問い合わせ' : 'Yame%20Candle%20レッスン予約';
-  link.href = `mailto:yamesample@co.jp?subject=${subject}`;
-});
+  const syncProfileTitle = () => {
+    if (!profileTitle || !profileTitleOriginalStyles) return;
 
-const reserveNavLink = document.querySelector('.site-nav__reserve');
-
-const normalizeReserveNavLink = () => {
-  if (!reserveNavLink) return;
-
-  reserveNavLink.style.setProperty('color', 'inherit', 'important');
-  reserveNavLink.style.setProperty('background', 'transparent', 'important');
-  reserveNavLink.style.setProperty('border', '0', 'important');
-  reserveNavLink.style.setProperty('border-radius', '0', 'important');
-  reserveNavLink.style.setProperty('box-shadow', 'none', 'important');
-
-  if (window.matchMedia('(min-width: 960px)').matches) {
-    reserveNavLink.style.setProperty('padding', '4px 0', 'important');
-  } else {
-    reserveNavLink.style.setProperty('padding', '12px 0', 'important');
-  }
-};
-
-requestAnimationFrame(normalizeReserveNavLink);
-window.addEventListener('load', normalizeReserveNavLink);
-window.addEventListener('resize', normalizeReserveNavLink);
-
-const lessonDescription = document.querySelector('#lesson .section-heading p:not(.eyebrow)');
-
-const syncLessonDescriptionPosition = () => {
-  if (!lessonDescription) return;
-
-  lessonDescription.style.textAlign = 'left';
-  lessonDescription.style.marginLeft = 'auto';
-  lessonDescription.style.marginRight = 'auto';
-
-  if (window.matchMedia('(min-width: 960px)').matches) {
-    lessonDescription.style.display = 'inline-block';
-    lessonDescription.style.maxWidth = 'max-content';
-  } else {
-    lessonDescription.style.display = 'block';
-    lessonDescription.style.maxWidth = '760px';
-  }
-};
-
-requestAnimationFrame(syncLessonDescriptionPosition);
-window.addEventListener('load', syncLessonDescriptionPosition);
-window.addEventListener('resize', syncLessonDescriptionPosition);
-
-const profileSection = document.querySelector('#profile');
-const profileGrid = profileSection?.querySelector(':scope > div');
-const profileCard = profileGrid?.children?.[0];
-const profilePhoto = profileGrid?.querySelector('.photo-frame');
-const profileTags = profileCard?.querySelector('div[style*="display: flex"][style*="flex-wrap: wrap"]');
-const profileTitle = profileSection?.querySelector('h2');
-const profileTitleOriginalStyles = profileTitle
-  ? {
-      fontSize: profileTitle.style.fontSize,
-      lineHeight: profileTitle.style.lineHeight,
-      letterSpacing: profileTitle.style.letterSpacing,
-      whiteSpace: profileTitle.style.whiteSpace,
+    if (window.matchMedia('(max-width: 699px)').matches) {
+      profileTitle.style.whiteSpace = 'nowrap';
+      profileTitle.style.fontSize = 'clamp(1.7rem, 7vw, 2.1rem)';
+      profileTitle.style.lineHeight = '1.22';
+      profileTitle.style.letterSpacing = '0.02em';
+    } else {
+      profileTitle.style.whiteSpace = profileTitleOriginalStyles.whiteSpace;
+      profileTitle.style.fontSize = profileTitleOriginalStyles.fontSize;
+      profileTitle.style.lineHeight = profileTitleOriginalStyles.lineHeight;
+      profileTitle.style.letterSpacing = profileTitleOriginalStyles.letterSpacing;
     }
-  : null;
-
-const syncProfileTitle = () => {
-  if (!profileTitle || !profileTitleOriginalStyles) return;
-
-  if (window.matchMedia('(max-width: 699px)').matches) {
-    profileTitle.style.whiteSpace = 'nowrap';
-    profileTitle.style.fontSize = 'clamp(1.7rem, 7vw, 2.1rem)';
-    profileTitle.style.lineHeight = '1.22';
-    profileTitle.style.letterSpacing = '0.02em';
-  } else {
-    profileTitle.style.whiteSpace = profileTitleOriginalStyles.whiteSpace;
-    profileTitle.style.fontSize = profileTitleOriginalStyles.fontSize;
-    profileTitle.style.lineHeight = profileTitleOriginalStyles.lineHeight;
-    profileTitle.style.letterSpacing = profileTitleOriginalStyles.letterSpacing;
-  }
-};
-
-requestAnimationFrame(syncProfileTitle);
-window.addEventListener('load', syncProfileTitle);
-window.addEventListener('resize', syncProfileTitle);
-
-profileTags?.remove();
-
-if (profileGrid && profileCard && profilePhoto) {
-  profileGrid.style.alignItems = 'stretch';
-  profileCard.style.alignSelf = 'stretch';
-  profilePhoto.style.alignSelf = 'stretch';
-  profilePhoto.style.maxHeight = 'none';
+  };
 
   const syncProfilePhotoHeight = () => {
+    if (!profileGrid || !profileCard || !profilePhoto) return;
+
+    profileGrid.style.alignItems = 'stretch';
+    profileCard.style.alignSelf = 'stretch';
+    profilePhoto.style.alignSelf = 'stretch';
+    profilePhoto.style.maxHeight = 'none';
+
     if (window.matchMedia('(min-width: 760px)').matches) {
       const cardHeight = profileCard.offsetHeight;
       profilePhoto.style.height = `${cardHeight}px`;
@@ -154,153 +122,181 @@ if (profileGrid && profileCard && profilePhoto) {
     }
   };
 
-  requestAnimationFrame(syncProfilePhotoHeight);
-  window.addEventListener('load', syncProfilePhotoHeight);
-  window.addEventListener('resize', syncProfilePhotoHeight);
-}
+  const contactVisual = document.querySelector('.contact__visual');
+  const contactInner = document.querySelector('.contact__inner');
+  const contactDescription = contactInner?.querySelector('p:not(.eyebrow)');
 
-const contactVisual = document.querySelector('.contact__visual');
-const contactInner = document.querySelector('.contact__inner');
-const contactDescription = contactInner?.querySelector('p:not(.eyebrow)');
-
-if (contactDescription) {
-  contactDescription.style.textAlign = 'left';
-  contactDescription.style.maxWidth = '640px';
-  contactDescription.style.marginLeft = 'auto';
-  contactDescription.style.marginRight = 'auto';
-}
-
-if (contactVisual) {
-  contactVisual.classList.remove('is-missing');
-  contactVisual.dataset.fallbackText = '';
-  contactVisual.style.alignSelf = 'stretch';
-  contactVisual.innerHTML = `
-    <a
-      href="https://www.instagram.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Yame CandleのInstagramを開く"
-      style="
-        position: absolute;
-        inset: 0;
-        display: grid;
-        place-items: center;
-        padding: clamp(24px, 4vw, 46px);
-        text-align: center;
-        background:
-          radial-gradient(circle at 18% 18%, rgba(201, 131, 43, 0.16), transparent 34%),
-          linear-gradient(135deg, rgba(255, 253, 248, 0.95), rgba(241, 228, 207, 0.82));
-        color: var(--color-brown);
-        overflow: hidden;
-      "
-    >
-      <span style="display: grid; gap: clamp(18px, 3.5vw, 24px); justify-items: center; align-content: center; width: 100%; max-width: 560px;">
-        <span class="eyebrow" style="margin: 0;">Instagram</span>
-        <span style="display: block; font-family: var(--font-serif); font-size: clamp(1.7rem, 6.2vw, 2.8rem); line-height: 1.42; letter-spacing: 0.06em;">お得情報は<br>Instagramへ</span>
-        <span class="button button--primary" style="margin-top: 0; min-width: min(100%, 260px); max-width: 100%;">Instagramを見る</span>
-      </span>
-    </a>
-  `;
-}
-
-const syncContactHeight = () => {
-  if (!contactVisual || !contactInner) return;
-
-  if (window.matchMedia('(min-width: 960px)').matches) {
-    const contactHeight = contactInner.offsetHeight;
-    contactVisual.style.height = `${contactHeight}px`;
-    contactVisual.style.minHeight = `${contactHeight}px`;
-  } else {
-    contactVisual.style.height = '';
-    contactVisual.style.minHeight = 'clamp(380px, 90vw, 480px)';
+  if (contactDescription) {
+    contactDescription.style.textAlign = 'left';
+    contactDescription.style.maxWidth = '640px';
+    contactDescription.style.marginLeft = 'auto';
+    contactDescription.style.marginRight = 'auto';
   }
-};
 
-requestAnimationFrame(syncContactHeight);
-window.addEventListener('load', syncContactHeight);
-window.addEventListener('resize', syncContactHeight);
+  if (contactVisual) {
+    contactVisual.classList.remove('is-missing');
+    contactVisual.dataset.fallbackText = '';
+    contactVisual.style.alignSelf = 'stretch';
+    contactVisual.innerHTML = `
+      <a
+        href="https://www.instagram.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Yame CandleのInstagramを開く"
+        style="
+          position: absolute;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          padding: clamp(24px, 4vw, 46px);
+          text-align: center;
+          background:
+            radial-gradient(circle at 18% 18%, rgba(201, 131, 43, 0.16), transparent 34%),
+            linear-gradient(135deg, rgba(255, 253, 248, 0.95), rgba(241, 228, 207, 0.82));
+          color: var(--color-brown);
+          overflow: hidden;
+        "
+      >
+        <span style="display: grid; gap: clamp(18px, 3.5vw, 24px); justify-items: center; align-content: center; width: 100%; max-width: 560px;">
+          <span class="eyebrow" style="margin: 0;">Instagram</span>
+          <span style="display: block; font-family: var(--font-serif); font-size: clamp(1.7rem, 6.2vw, 2.8rem); line-height: 1.42; letter-spacing: 0.06em;">お得情報は<br>Instagramへ</span>
+          <span class="button button--primary" style="margin-top: 0; min-width: min(100%, 260px); max-width: 100%;">Instagramを見る</span>
+        </span>
+      </a>
+    `;
+  }
 
-const menuToggle = document.querySelector('[data-menu-toggle]');
-const navigation = document.querySelector('[data-nav]');
-const mobileSectionLinks = [
-  ['#top', 'TOP'],
-  ['#profile', 'プロフィール'],
-  ['#about', 'アトリエについて'],
-  ['#lesson', 'レッスン'],
-  ['#reserve', 'ご予約'],
-  ['#shop', 'オンラインショップ'],
-  ['#access', 'アクセス'],
-  ['#contact', 'お問合せ'],
-  ['#faq', 'よくある質問'],
-];
+  const syncContactHeight = () => {
+    if (!contactVisual || !contactInner) return;
 
-const closeMenu = () => {
-  if (!menuToggle || !navigation) return;
-  menuToggle.setAttribute('aria-expanded', 'false');
-  navigation.classList.remove('is-open');
-  document.body.classList.remove('menu-open');
-};
+    if (desktopQuery.matches) {
+      const contactHeight = contactInner.offsetHeight;
+      contactVisual.style.height = `${contactHeight}px`;
+      contactVisual.style.minHeight = `${contactHeight}px`;
+    } else {
+      contactVisual.style.height = '';
+      contactVisual.style.minHeight = 'clamp(380px, 90vw, 480px)';
+    }
+  };
 
-const syncMobileMenuLinks = () => {
-  if (!navigation) return;
+  const menuToggle = document.querySelector('[data-menu-toggle]');
+  const navigation = document.querySelector('[data-nav]');
+  const originalNavigationHtml = navigation?.innerHTML || '';
+  const mobileSectionLinks = [
+    ['#top', 'TOP'],
+    ['#profile', 'プロフィール'],
+    ['#about', 'アトリエについて'],
+    ['#lesson', 'レッスン'],
+    ['#reserve', 'ご予約'],
+    ['#shop', 'オンラインショップ'],
+    ['#access', 'アクセス'],
+    ['#contact', 'お問合せ'],
+    ['#faq', 'よくある質問'],
+  ];
 
-  const isMobile = window.matchMedia('(max-width: 959px)').matches;
-  navigation.querySelectorAll('[data-mobile-section-link="true"]').forEach((link) => link.remove());
+  const applyMobileMenuPanel = () => {
+    if (!navigation) return;
 
-  if (!isMobile) return;
+    if (!mobileQuery.matches) {
+      navigation.innerHTML = originalNavigationHtml;
+      navigation.removeAttribute('style');
+      return;
+    }
 
-  mobileSectionLinks.forEach(([href, label]) => {
-    if (navigation.querySelector(`a[href="${href}"]`)) return;
+    navigation.innerHTML = mobileSectionLinks
+      .map(([href, label]) => `<a href="${href}">${label}</a>`)
+      .join('');
 
-    const link = document.createElement('a');
-    link.href = href;
-    link.textContent = label;
-    link.dataset.mobileSectionLink = 'true';
-    navigation.appendChild(link);
-  });
-};
+    navigation.style.setProperty('position', 'fixed', 'important');
+    navigation.style.setProperty('inset', '0', 'important');
+    navigation.style.setProperty('z-index', '25', 'important');
+    navigation.style.setProperty('display', 'flex', 'important');
+    navigation.style.setProperty('flex-direction', 'column', 'important');
+    navigation.style.setProperty('justify-content', 'flex-start', 'important');
+    navigation.style.setProperty('gap', '0', 'important');
+    navigation.style.setProperty('padding', '98px 34px 38px', 'important');
+    navigation.style.setProperty('background', 'rgba(255, 253, 248, 0.98)', 'important');
+    navigation.style.setProperty('backdrop-filter', 'blur(18px)', 'important');
+    navigation.style.setProperty('-webkit-backdrop-filter', 'blur(18px)', 'important');
+    navigation.style.setProperty('overflow-y', 'auto', 'important');
+    navigation.style.setProperty('color', 'var(--color-brown)', 'important');
 
-if (menuToggle && navigation) {
-  syncMobileMenuLinks();
-  window.addEventListener('load', syncMobileMenuLinks);
-  window.addEventListener('resize', syncMobileMenuLinks);
+    navigation.querySelectorAll('a').forEach((link) => {
+      link.style.setProperty('display', 'block', 'important');
+      link.style.setProperty('padding', '15px 0', 'important');
+      link.style.setProperty('border-bottom', '1px solid rgba(114, 84, 61, 0.16)', 'important');
+      link.style.setProperty('background', 'transparent', 'important');
+      link.style.setProperty('color', 'var(--color-brown)', 'important');
+      link.style.setProperty('font-family', 'var(--font-serif)', 'important');
+      link.style.setProperty('font-size', '1.08rem', 'important');
+      link.style.setProperty('line-height', '1.45', 'important');
+      link.style.setProperty('letter-spacing', '0.08em', 'important');
+      link.style.setProperty('text-shadow', 'none', 'important');
+    });
+  };
 
-  menuToggle.addEventListener('click', () => {
-    syncMobileMenuLinks();
-    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-    menuToggle.setAttribute('aria-expanded', String(!isExpanded));
-    navigation.classList.toggle('is-open', !isExpanded);
-    document.body.classList.toggle('menu-open', !isExpanded);
-  });
+  const closeMenu = () => {
+    if (!menuToggle || !navigation) return;
+    menuToggle.setAttribute('aria-expanded', 'false');
+    navigation.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
+  };
 
-  navigation.addEventListener('click', (event) => {
-    const link = event.target.closest('a');
-    if (link && navigation.contains(link)) closeMenu();
-  });
+  if (menuToggle && navigation) {
+    applyMobileMenuPanel();
+    window.addEventListener('load', applyMobileMenuPanel);
+    window.addEventListener('resize', applyMobileMenuPanel);
 
-  window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape') closeMenu();
-  });
-}
+    menuToggle.addEventListener('click', () => {
+      applyMobileMenuPanel();
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isExpanded));
+      navigation.classList.toggle('is-open', !isExpanded);
+      document.body.classList.toggle('menu-open', !isExpanded);
+    });
 
-document.querySelectorAll('.photo-frame img').forEach((image) => {
-  const frame = image.closest('.photo-frame');
-  if (!frame) return;
+    navigation.addEventListener('click', (event) => {
+      const link = event.target.closest('a');
+      if (link && navigation.contains(link)) closeMenu();
+    });
 
-  frame.dataset.fallbackText = image.dataset.fallback || image.alt || 'Yame Candle';
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  }
 
-  image.addEventListener('error', () => {
-    image.hidden = true;
-    frame.classList.add('is-missing');
-  });
-});
+  document.querySelectorAll('.photo-frame img').forEach((image) => {
+    const frame = image.closest('.photo-frame');
+    if (!frame) return;
 
-document.querySelectorAll('.faq__item').forEach((item) => {
-  item.addEventListener('toggle', () => {
-    if (!item.open) return;
+    frame.dataset.fallbackText = image.dataset.fallback || image.alt || 'Yame Candle';
 
-    document.querySelectorAll('.faq__item[open]').forEach((openItem) => {
-      if (openItem !== item) openItem.open = false;
+    image.addEventListener('error', () => {
+      image.hidden = true;
+      frame.classList.add('is-missing');
     });
   });
-});
+
+  document.querySelectorAll('.faq__item').forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (!item.open) return;
+
+      document.querySelectorAll('.faq__item[open]').forEach((openItem) => {
+        if (openItem !== item) openItem.open = false;
+      });
+    });
+  });
+
+  const syncAll = () => {
+    updateAccessInfo();
+    syncLessonDescriptionPosition();
+    syncProfileTitle();
+    syncProfilePhotoHeight();
+    syncContactHeight();
+    applyMobileMenuPanel();
+  };
+
+  requestAnimationFrame(syncAll);
+  window.addEventListener('load', syncAll);
+  window.addEventListener('resize', syncAll);
+})();
