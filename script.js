@@ -222,7 +222,17 @@ window.addEventListener('resize', syncContactHeight);
 
 const menuToggle = document.querySelector('[data-menu-toggle]');
 const navigation = document.querySelector('[data-nav]');
-const navLinks = navigation ? [...navigation.querySelectorAll('a')] : [];
+const mobileSectionLinks = [
+  ['#top', 'TOP'],
+  ['#profile', 'プロフィール'],
+  ['#about', 'アトリエについて'],
+  ['#lesson', 'レッスン'],
+  ['#reserve', 'ご予約'],
+  ['#shop', 'オンラインショップ'],
+  ['#access', 'アクセス'],
+  ['#contact', 'お問合せ'],
+  ['#faq', 'よくある質問'],
+];
 
 const closeMenu = () => {
   if (!menuToggle || !navigation) return;
@@ -231,16 +241,41 @@ const closeMenu = () => {
   document.body.classList.remove('menu-open');
 };
 
+const syncMobileMenuLinks = () => {
+  if (!navigation) return;
+
+  const isMobile = window.matchMedia('(max-width: 959px)').matches;
+  navigation.querySelectorAll('[data-mobile-section-link="true"]').forEach((link) => link.remove());
+
+  if (!isMobile) return;
+
+  mobileSectionLinks.forEach(([href, label]) => {
+    if (navigation.querySelector(`a[href="${href}"]`)) return;
+
+    const link = document.createElement('a');
+    link.href = href;
+    link.textContent = label;
+    link.dataset.mobileSectionLink = 'true';
+    navigation.appendChild(link);
+  });
+};
+
 if (menuToggle && navigation) {
+  syncMobileMenuLinks();
+  window.addEventListener('load', syncMobileMenuLinks);
+  window.addEventListener('resize', syncMobileMenuLinks);
+
   menuToggle.addEventListener('click', () => {
+    syncMobileMenuLinks();
     const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', String(!isExpanded));
     navigation.classList.toggle('is-open', !isExpanded);
     document.body.classList.toggle('menu-open', !isExpanded);
   });
 
-  navLinks.forEach((link) => {
-    link.addEventListener('click', closeMenu);
+  navigation.addEventListener('click', (event) => {
+    const link = event.target.closest('a');
+    if (link && navigation.contains(link)) closeMenu();
   });
 
   window.addEventListener('keydown', (event) => {
