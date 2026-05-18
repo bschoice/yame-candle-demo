@@ -2,6 +2,23 @@
   const mobileQuery = window.matchMedia('(max-width: 959px)');
   const desktopQuery = window.matchMedia('(min-width: 960px)');
 
+  const desktopReserveNavStyle = document.createElement('style');
+  desktopReserveNavStyle.textContent = `
+    @media (min-width: 960px) {
+      .site-nav .site-nav__reserve,
+      .site-nav a[href="#reserve"] {
+        padding: 4px 0 !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        color: inherit !important;
+        font-weight: 700 !important;
+      }
+    }
+  `;
+  document.head.appendChild(desktopReserveNavStyle);
+
   document.querySelector('.hero__actions .button--reserve')?.remove();
   document.querySelector('.reserve__actions .button--ghost')?.remove();
 
