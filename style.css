@@ -898,3 +898,156 @@ p {
     background: rgba(255, 253, 248, 0.985) !important;
   }
 }
+
+@media (max-width: 699px) {
+  .section-pad {
+    padding-top: clamp(56px, 10vw, 68px) !important;
+    padding-bottom: clamp(56px, 10vw, 68px) !important;
+  }
+
+  .hero.section-pad {
+    padding-top: 30px !important;
+    padding-bottom: 58px !important;
+  }
+
+  .hero {
+    gap: 28px !important;
+    min-height: auto !important;
+  }
+
+  .hero__image {
+    min-height: clamp(300px, 72vw, 420px) !important;
+  }
+
+  .hero__content h1 {
+    margin-top: 0 !important;
+  }
+
+  .lead {
+    margin-top: 18px !important;
+  }
+
+  .hero__actions {
+    margin-top: 22px !important;
+    gap: 10px !important;
+  }
+
+  .intro.section-pad {
+    padding-top: 10px !important;
+    padding-bottom: 54px !important;
+  }
+
+  .intro,
+  .lesson__cards,
+  .reserve__steps,
+  .gallery__grid,
+  .faq__list {
+    gap: 14px !important;
+  }
+
+  .intro__item,
+  .lesson__note,
+  .lesson-card,
+  .reserve-step,
+  .access__content,
+  .contact__inner,
+  .faq__item {
+    padding: 22px 20px !important;
+  }
+
+  .section-heading--center {
+    margin-bottom: 26px !important;
+  }
+
+  .section-heading--center p:not(.eyebrow) {
+    margin-top: 12px !important;
+  }
+
+  .eyebrow {
+    margin-bottom: 10px !important;
+  }
+
+  .concept,
+  .lesson,
+  .reserve,
+  .access,
+  .contact {
+    gap: 26px !important;
+  }
+
+  .concept__text {
+    gap: 18px !important;
+  }
+
+  .concept__body p + p,
+  .access__content p + .access__list {
+    margin-top: 14px !important;
+  }
+
+  .concept__image,
+  .lesson__image,
+  .access__visual,
+  .contact__visual {
+    min-height: clamp(240px, 56vw, 360px) !important;
+  }
+
+  .lesson__intro {
+    gap: 18px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .lesson-card__image {
+    margin-bottom: 14px !important;
+  }
+
+  .lesson-card > p:not(.lesson-card__label),
+  .lesson__note p:last-child,
+  .reserve-step p,
+  .access__content > p,
+  .contact__inner p {
+    margin-top: 10px !important;
+  }
+
+  .lesson-card dl,
+  .access__list {
+    gap: 10px !important;
+    margin-top: 16px !important;
+  }
+
+  .lesson-card dl > div,
+  .access__list > div {
+    padding-bottom: 10px !important;
+  }
+
+  .reserve-step span {
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .reserve__actions {
+    margin-top: 22px !important;
+  }
+
+  .contact__inner .button {
+    margin-top: 20px !important;
+  }
+
+  .faq__item summary {
+    padding: 16px 0 !important;
+  }
+
+  .faq__item p {
+    padding-bottom: 16px !important;
+  }
+
+  .site-nav {
+    padding-top: 94px !important;
+    padding-bottom: 32px !important;
+  }
+
+  .site-nav a {
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+  }
+}
