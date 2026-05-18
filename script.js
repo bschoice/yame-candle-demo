@@ -105,6 +105,35 @@ const profileGrid = profileSection?.querySelector(':scope > div');
 const profileCard = profileGrid?.children?.[0];
 const profilePhoto = profileGrid?.querySelector('.photo-frame');
 const profileTags = profileCard?.querySelector('div[style*="display: flex"][style*="flex-wrap: wrap"]');
+const profileTitle = profileSection?.querySelector('h2');
+const profileTitleOriginalStyles = profileTitle
+  ? {
+      fontSize: profileTitle.style.fontSize,
+      lineHeight: profileTitle.style.lineHeight,
+      letterSpacing: profileTitle.style.letterSpacing,
+      whiteSpace: profileTitle.style.whiteSpace,
+    }
+  : null;
+
+const syncProfileTitle = () => {
+  if (!profileTitle || !profileTitleOriginalStyles) return;
+
+  if (window.matchMedia('(max-width: 699px)').matches) {
+    profileTitle.style.whiteSpace = 'nowrap';
+    profileTitle.style.fontSize = 'clamp(1.7rem, 7vw, 2.1rem)';
+    profileTitle.style.lineHeight = '1.22';
+    profileTitle.style.letterSpacing = '0.02em';
+  } else {
+    profileTitle.style.whiteSpace = profileTitleOriginalStyles.whiteSpace;
+    profileTitle.style.fontSize = profileTitleOriginalStyles.fontSize;
+    profileTitle.style.lineHeight = profileTitleOriginalStyles.lineHeight;
+    profileTitle.style.letterSpacing = profileTitleOriginalStyles.letterSpacing;
+  }
+};
+
+requestAnimationFrame(syncProfileTitle);
+window.addEventListener('load', syncProfileTitle);
+window.addEventListener('resize', syncProfileTitle);
 
 profileTags?.remove();
 
