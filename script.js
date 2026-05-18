@@ -1,6 +1,61 @@
 document.querySelector('.hero__actions .button--reserve')?.remove();
 document.querySelector('.reserve__actions .button--ghost')?.remove();
 
+const accessList = document.querySelector('.access__list');
+
+const updateAccessInfo = () => {
+  if (!accessList) return;
+
+  const rows = [...accessList.querySelectorAll(':scope > div')];
+
+  rows.forEach((row) => {
+    row.style.gridTemplateColumns = window.matchMedia('(max-width: 699px)').matches
+      ? '6.6em minmax(0, 1fr)'
+      : '7.2em minmax(0, 1fr)';
+    row.style.alignItems = 'start';
+
+    const label = row.querySelector('dt');
+    if (label) {
+      label.style.whiteSpace = 'nowrap';
+      label.style.letterSpacing = '0.02em';
+    }
+  });
+
+  const hasEmailRow = rows.some((row) => row.querySelector('dt')?.textContent?.trim() === 'メール');
+  if (!hasEmailRow) {
+    const emailRow = document.createElement('div');
+    emailRow.innerHTML = '<dt>メール</dt><dd><a href="mailto:yamesample@co.jp">yamesample@co.jp</a></dd>';
+    emailRow.style.gridTemplateColumns = window.matchMedia('(max-width: 699px)').matches
+      ? '6.6em minmax(0, 1fr)'
+      : '7.2em minmax(0, 1fr)';
+    emailRow.style.alignItems = 'start';
+
+    const label = emailRow.querySelector('dt');
+    if (label) {
+      label.style.whiteSpace = 'nowrap';
+      label.style.letterSpacing = '0.02em';
+    }
+
+    const link = emailRow.querySelector('a');
+    if (link) {
+      link.style.textDecoration = 'none';
+      link.style.color = 'inherit';
+      link.style.wordBreak = 'break-word';
+    }
+
+    accessList.appendChild(emailRow);
+  }
+};
+
+requestAnimationFrame(updateAccessInfo);
+window.addEventListener('load', updateAccessInfo);
+window.addEventListener('resize', updateAccessInfo);
+
+document.querySelectorAll('a[href^="mailto:hello@example.com"]').forEach((link) => {
+  const subject = link.href.includes('お問い合わせ') ? 'Yame%20Candle%20お問い合わせ' : 'Yame%20Candle%20レッスン予約';
+  link.href = `mailto:yamesample@co.jp?subject=${subject}`;
+});
+
 const reserveNavLink = document.querySelector('.site-nav__reserve');
 
 const normalizeReserveNavLink = () => {
