@@ -55,6 +55,14 @@ if (profileGrid && profileCard && profilePhoto) {
 
 const contactVisual = document.querySelector('.contact__visual');
 const contactInner = document.querySelector('.contact__inner');
+const contactDescription = contactInner?.querySelector('p:not(.eyebrow)');
+
+if (contactDescription) {
+  contactDescription.style.textAlign = 'left';
+  contactDescription.style.maxWidth = '640px';
+  contactDescription.style.marginLeft = 'auto';
+  contactDescription.style.marginRight = 'auto';
+}
 
 if (contactVisual) {
   contactVisual.classList.remove('is-missing');
