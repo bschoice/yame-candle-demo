@@ -1,6 +1,36 @@
 document.querySelector('.hero__actions .button--reserve')?.remove();
 document.querySelector('.reserve__actions .button--ghost')?.remove();
 
+const profileSection = document.querySelector('#profile');
+const profileGrid = profileSection?.querySelector(':scope > div');
+const profileCard = profileGrid?.children?.[0];
+const profilePhoto = profileGrid?.querySelector('.photo-frame');
+const profileTags = profileCard?.querySelector('div[style*="display: flex"][style*="flex-wrap: wrap"]');
+
+profileTags?.remove();
+
+if (profileGrid && profileCard && profilePhoto) {
+  profileGrid.style.alignItems = 'stretch';
+  profileCard.style.alignSelf = 'stretch';
+  profilePhoto.style.alignSelf = 'stretch';
+  profilePhoto.style.maxHeight = 'none';
+
+  const syncProfilePhotoHeight = () => {
+    if (window.matchMedia('(min-width: 760px)').matches) {
+      const cardHeight = profileCard.offsetHeight;
+      profilePhoto.style.height = `${cardHeight}px`;
+      profilePhoto.style.minHeight = `${cardHeight}px`;
+    } else {
+      profilePhoto.style.height = '';
+      profilePhoto.style.minHeight = 'clamp(300px, 82vw, 420px)';
+    }
+  };
+
+  requestAnimationFrame(syncProfilePhotoHeight);
+  window.addEventListener('load', syncProfilePhotoHeight);
+  window.addEventListener('resize', syncProfilePhotoHeight);
+}
+
 const contactVisual = document.querySelector('.contact__visual');
 const contactInner = document.querySelector('.contact__inner');
 
