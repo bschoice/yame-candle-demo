@@ -1,6 +1,28 @@
 document.querySelector('.hero__actions .button--reserve')?.remove();
 document.querySelector('.reserve__actions .button--ghost')?.remove();
 
+const lessonDescription = document.querySelector('#lesson .section-heading p:not(.eyebrow)');
+
+const syncLessonDescriptionPosition = () => {
+  if (!lessonDescription) return;
+
+  lessonDescription.style.textAlign = 'left';
+  lessonDescription.style.marginLeft = 'auto';
+  lessonDescription.style.marginRight = 'auto';
+
+  if (window.matchMedia('(min-width: 960px)').matches) {
+    lessonDescription.style.display = 'inline-block';
+    lessonDescription.style.maxWidth = 'max-content';
+  } else {
+    lessonDescription.style.display = 'block';
+    lessonDescription.style.maxWidth = '760px';
+  }
+};
+
+requestAnimationFrame(syncLessonDescriptionPosition);
+window.addEventListener('load', syncLessonDescriptionPosition);
+window.addEventListener('resize', syncLessonDescriptionPosition);
+
 const profileSection = document.querySelector('#profile');
 const profileGrid = profileSection?.querySelector(':scope > div');
 const profileCard = profileGrid?.children?.[0];
