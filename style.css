@@ -520,7 +520,19 @@ p {
 }
 
 .access {
-  align-items: center;
+  align-items: stretch;
+  grid-template-columns: 1fr !important;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.access__content {
+  order: 1;
+}
+
+.access__visual {
+  order: 2;
+  min-height: clamp(320px, 54vw, 520px);
 }
 
 .access__visual img,
@@ -659,7 +671,6 @@ p {
   }
 
   .hero,
-  .access,
   .contact {
     grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
   }
